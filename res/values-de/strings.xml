@@ -2545,6 +2545,9 @@
 
     <!-- Navigation bar -->
     <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="navigation_bar_edit_title">Anpassen</string>
+    <string name="navigation_bar_edit_summary">Buttons anpassen</string>
+    <string name="navigation_bar_height">Höhe</string>
     <string name="navigation_bar_help_text">1 - Schloss-Icon berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Icon erneut berühren, um die Änderungen zu speichern\n\n5 - Reset-Icon berühren, um die Vorgaben wiederherzustellen\n\n</string>
     <string name="navigation_bar_tips">\u2022 Eine Funktion kann nur einer Schaltfläche gleichzeitig zugewiesen werden\n\n\u2022 Die Funktion der Home-Schaltfläche kann nicht verändert werden\n\n\u2022 Die seitlichen Schaltflächen können nicht verschoben werden</string>
     <string name="navigation_bar_tips_title">Schnellhilfe</string>
@@ -2553,6 +2556,10 @@
     <string name="navigation_bar_reset_toast">Die Vorgaben der Navigationsleiste wurden wiederhergestellt</string>
     <string name="navigation_bar_menu_editable">Änderbar</string>
     <string name="navigation_bar_menu_locked">Gesperrt</string>
+    <string name="navigation_bar_height_48">48dp (Standard)</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
 
     <!-- Maximize lock screen widgets -->
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>

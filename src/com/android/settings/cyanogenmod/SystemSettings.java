@@ -22,9 +22,11 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.view.IWindowManager;
 
@@ -34,13 +36,15 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SystemSettings extends SettingsPreferenceFragment {
+public class SystemSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
+    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
@@ -50,6 +54,7 @@ public class SystemSettings extends SettingsPreferenceFragment {
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
     private boolean mIsPrimary;
+    private ListPreference mNavButtonsHeight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,6 +113,14 @@ public class SystemSettings extends SettingsPreferenceFragment {
         }
 
         // Preferences that applies to all users
+        mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
+        mNavButtonsHeight.setOnPreferenceChangeListener(this);
+
+        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
+        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
+        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
+
         // Notification lights
         mNotificationPulse = (PreferenceScreen) findPreference(KEY_NOTIFICATION_PULSE);
         if (mNotificationPulse != null) {
@@ -172,6 +185,18 @@ public class SystemSettings extends SettingsPreferenceFragment {
                 getPreferenceScreen().removePreference(preference);
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mNavButtonsHeight) {
+            int statusNavButtonsHeight = Integer.valueOf((String) objValue);
+            int index = mNavButtonsHeight.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
+            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
+            return true;
         }
         return false;
     }
