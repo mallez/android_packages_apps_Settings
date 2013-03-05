@@ -1269,7 +1269,7 @@
         <item>500</item>
         </string-array>
 
-    <!--- Nav buttons height -->
+    <!--- Nav buttons height -->	1257
     <string-array name="nav_buttons_height_entries" translatable="false">
         <item>@string/navigation_bar_height_48</item>
         <item>@string/navigation_bar_height_44</item>
