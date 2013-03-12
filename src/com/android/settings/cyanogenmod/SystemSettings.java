@@ -43,8 +43,9 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
     private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
+    private static final String KEY_NAVIGATION_RING = "navigation_ring";
+    private static final String KEY_NAVIGATION_BAR_CATEGORY = "navigation_bar_category";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
@@ -100,12 +101,16 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
             }
             if (removeNavbar) {
                 prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
+                prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
+                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
             }
         } else {
             // Secondary user is logged in, remove all primary user specific preferences
             prefScreen.removePreference(findPreference(KEY_BATTERY_LIGHT));
             prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
             prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
+            prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
+            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
             prefScreen.removePreference(findPreference(KEY_STATUS_BAR));
             prefScreen.removePreference(findPreference(KEY_QUICK_SETTINGS));
             prefScreen.removePreference(findPreference(KEY_POWER_MENU));
