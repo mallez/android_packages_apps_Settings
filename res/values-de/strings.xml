@@ -2617,5 +2617,29 @@
     <string name="volume_adjust_sounds_enable_title">Änderungston</string>
     <string name="volume_adjust_sounds_enable_summary">Beim Anpassen der Lautstärke mit der Lautstärkewippe einen Ton abspielen</string>
 
+    <!-- Advanced lockpattern settings -->
+    <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
+    <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
+
+    <!-- Navigation bar buttons and shortcuts category title -->
+    <string name="navigation_bar_category">Navigationsleiste</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Schnellstart-Verknüpfungen</string>
+    <string name="navring_target_reset_message">Schnellstart-Verknüpfungen auf Standard zurücksetzen?</string>
+    <string name="navring_target_reset">Schnellstart-Verknüpfungen zurückgesetzt</string>
+    <string name="navring_target_save">Schnellstart-Verknüpfungen gespeichert</string>
+    <string name="navring_action_open_ime_switcher">Eingabemethode wählen</string>
+    <string name="navring_action_kill_app">App schließen</string>
+    <string name="navring_action_none">Keine</string>
+    <string name="navring_action_take_screenshot">Bildschirmfoto</string>
+    <string name="navring_action_ring_vibrate">Ton | Vibration</string>
+    <string name="navring_action_ring_silent">Ton | Lautlos</string>
+    <string name="navring_action_ring_vibrate_silent">Ton | Vibration | Lautlos</string>
+    <string name="navring_action_screen_off">Bildschirm sperren</string>
+    <string name="navring_action_torch">Taschenlampe</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Aktion auswählen</string>
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
